@@ -2,7 +2,7 @@
   const numberButtonsAll = document.querySelectorAll(".number");
   const operatorButtonsAll = document.querySelectorAll(".operator");
   const clearButton = document.querySelector(".clear");
-  console.log(operatorButtonsAll);
+  const equalButton = document.querySelector(".equal-sign");
 
   function pushNumber() {
     numberButtonsAll.forEach((button) =>
@@ -17,6 +17,11 @@
     clearButton.addEventListener("click", () => alert(clearButton.value));
   }
 
+  function calculate() {
+    equalButton.addEventListener("click", () => alert(equalButton.value));
+  }
+
   pushNumber();
   pushOperator();
+  calculate();
 })();
