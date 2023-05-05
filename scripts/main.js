@@ -5,7 +5,7 @@
   function pushNumber() {
     numberButtonsAll.forEach((numButton) =>
       numButton.addEventListener("click", function () {
-        alert("You pushed a number!");
+        alert(numButton.value);
       })
     );
   }
