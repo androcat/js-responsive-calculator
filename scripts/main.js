@@ -1,14 +1,24 @@
 (function () {
   const numberButtonsAll = document.querySelectorAll(".number");
-  console.log(numberButtonsAll);
+  const operatorButtonsAll = document.querySelectorAll(".operator");
+  console.log(operatorButtonsAll);
 
   function pushNumber() {
-    numberButtonsAll.forEach((numButton) =>
-      numButton.addEventListener("click", function () {
-        alert(numButton.value);
+    numberButtonsAll.forEach((button) =>
+      button.addEventListener("click", function () {
+        alert(button.value);
+      })
+    );
+  }
+
+  function pushOperator() {
+    operatorButtonsAll.forEach((button) =>
+      button.addEventListener("click", function () {
+        alert(button.value);
       })
     );
   }
 
   pushNumber();
+  pushOperator();
 })();
