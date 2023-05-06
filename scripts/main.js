@@ -6,7 +6,6 @@
   const screen = document.querySelector(".calculator-screen");
 
   let calculationArr = [];
-  let total = 0;
 
   function pushNumber(button) {
     calculationArr.push(button.value);
@@ -24,6 +23,8 @@
 
   function calculate() {
     let num1, num2, opIndex, op;
+    let total = 0;
+
     for (let i = 0; i < calculationArr.length; i++) {
       if ("*/+-".includes(calculationArr[i])) {
         opIndex = i;
@@ -36,21 +37,25 @@
     num1 = parseInt(calculationArr.slice(0, opIndex).join(""));
     num2 = parseInt(calculationArr.slice(opIndex + 1).join(""));
 
-    console.log("num1", num1);
-    console.log("num2", num2);
+    console.log("num1", typeof num1);
+    console.log("num2", typeof num2);
     console.log("op", op);
 
     console.log(calculationArr);
-
+    console.log("total before", total);
     if (op === "*") {
       total += num1 * num2;
+      console.log("total after", total);
     } else if (op === "/") {
       //  look up if just integer division
       total += num1 / num2;
+      console.log("total after", total);
     } else if (op === "+") {
       total += num1 + num2;
+      console.log("total after", total);
     } else {
       total += num1 - num2;
+      console.log("total after", total);
     }
     calculationArr = [];
     screen.value = total.toString();
