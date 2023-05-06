@@ -40,6 +40,8 @@
     console.log("num2", num2);
     console.log("op", op);
 
+    console.log(calculationArr);
+
     if (op === "*") {
       total += num1 * num2;
     } else if (op === "/") {
@@ -47,13 +49,14 @@
       total += num1 / num2;
     } else if (op === "+") {
       total += num1 + num2;
-    } else if (op === "-") {
+    } else {
       total += num1 - num2;
     }
     calculationArr = [];
     screen.value = total.toString();
 
-    calculationArr.push(total.toString());
+    calculationArr.push(total + "");
+    console.log(calculationArr);
   }
   numberButtonsAll.forEach((button) =>
     button.addEventListener("click", () => pushNumber(button))
@@ -63,6 +66,7 @@
   );
   clearButton.addEventListener("click", () => {
     calculationArr = [];
+    total = 0;
     screen.value = "0";
   });
   equalButton.addEventListener("click", () => calculate());
