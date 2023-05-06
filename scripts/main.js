@@ -25,7 +25,7 @@
   function calculate() {
     let num1, num2, opIndex, op;
     for (let i = 0; i < calculationArr.length; i++) {
-      if ("*/+_".includes(calculationArr[i])) {
+      if ("*/+-".includes(calculationArr[i])) {
         opIndex = i;
         op = calculationArr[i];
         break;
