@@ -3,6 +3,7 @@
   const operatorButtonsAll = document.querySelectorAll(".operator");
   const clearButton = document.querySelector(".clear");
   const equalButton = document.querySelector(".equal-sign");
+  const screen = document.querySelector(".calculator-screen");
 
   let calculationArr = [];
   let total = 0;
@@ -11,12 +12,14 @@
     calculationArr.push(button.value);
     // delete later
     console.log(calculationArr);
+    screen.value = calculationArr.toString().split(",").join("");
   }
 
   function pushOperator(button) {
     calculationArr.push(button.value);
     // delete later
     console.log(calculationArr);
+    screen.value = calculationArr.toString().split(",").join("");
   }
 
   function calculate() {
@@ -37,20 +40,20 @@
     console.log("num2", num2);
     console.log("op", op);
 
-    alert(num1 + op + num2);
-
     if (op === "*") {
-      total = num1 * num2;
+      total += num1 * num2;
     } else if (op === "/") {
       //  look up if just integer division
-      total = num1 / num2;
+      total += num1 / num2;
     } else if (op === "+") {
-      total = num1 + num2;
+      total += num1 + num2;
     } else if (op === "-") {
-      total = num1 - num2;
+      total += num1 - num2;
     }
+    calculationArr = [];
+    screen.value = total.toString();
 
-    alert(total);
+    calculationArr.push(total.toString());
   }
   numberButtonsAll.forEach((button) =>
     button.addEventListener("click", () => pushNumber(button))
@@ -58,6 +61,9 @@
   operatorButtonsAll.forEach((button) =>
     button.addEventListener("click", () => pushOperator(button))
   );
-  clearButton.addEventListener("click", () => (calculationArr = []));
+  clearButton.addEventListener("click", () => {
+    calculationArr = [];
+    screen.value = "0";
+  });
   equalButton.addEventListener("click", () => calculate());
 })();
