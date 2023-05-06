@@ -16,6 +16,10 @@ body {
   text-align: center;
 }
 
+span {
+  background-color: #ff9d00;
+}
+
 .calculator {
   border: 1px solid #1e1e1e;
   border-radius: 5px;
